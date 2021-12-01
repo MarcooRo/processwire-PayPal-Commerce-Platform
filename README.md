@@ -27,3 +27,5 @@ Enable your account - https://developer.paypal.com/docs/business/checkout/advanc
 Generate token - https://developer.paypal.com/docs/business/checkout/advanced-card-payments/#2-generate-client-token<br>
 Capture order - https://developer.paypal.com/docs/business/checkout/advanced-card-payments/#4-capture-order<br>
 Sandbox: https://developer.paypal.com/docs/api-basics/sandbox/accounts/ <br>
+Card test https://developer.paypal.com/docs/business/checkout/3d-secure/3d-secure-test/
+3D secure info - https://developer.paypal.com/docs/business/checkout/3d-secure/3d-secure-response-parameters/
