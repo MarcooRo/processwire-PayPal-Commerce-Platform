@@ -352,8 +352,14 @@ class PaymentPayPalCommercePlatform extends PaymentModule {
 		echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>";
 
 		$createOrder = 'https://api.sandbox.paypal.com/v2/checkout/orders/';
-		$capture = 'https://'.$_SERVER['HTTP_HOST'].'/'.$this->capture;
-		$successUrl = 'https://'.$_SERVER['HTTP_HOST'].'/'.$this->successUrl;
+		if ($this->wire('user')->language) {
+			$lang = $this->wire('user')->language;
+			$landPath = $lang->name;
+		} else {
+			$landPath = '';
+		}
+		$capture = 'https://'.$_SERVER['HTTP_HOST'].'/'.$landPath.'/'.$this->capture;
+		$successUrl = 'https://'.$_SERVER['HTTP_HOST'].'/'.$landPath.'/'.$this->successUrl;
 
 		// Take Order information
 		$order_id=$this->id;
