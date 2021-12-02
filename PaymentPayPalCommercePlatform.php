@@ -1,5 +1,5 @@
 <?php namespace ProcessWire;
-/* 
+/*
 This is a sendbox vertion.
 If you wan use live rember to change the URL in access_token() and  client_token();
 
@@ -548,8 +548,7 @@ class PaymentPayPalCommercePlatform extends PaymentModule {
 									console.log(paymentStatus);
 									if (paymentStatus == 'COMPLETED') {
 										document.querySelector('#messagePayment').innerHTML = 'Pagamento andato a buonfine';
-										document.querySelector('#successful').innerHTML = '<p>Very soon you will be redirected to the confirmation page. If this does not happen within a few seconds, please click on the link.</p> \n
-										<a href=" . $successUrl . ">Go to confermation page</a>';
+										document.querySelector('#successful').innerHTML = '<p>Very soon you will be redirected to the confirmation page. If this does not happen within a few seconds, please click on the link.</p><a href=" . $successUrl . ">Go to confermation page</a>';
 										document.querySelector('#modal-id-payment-check').classList.add('active');
 										setTimeout(function(){ window.location.href = '" . $successUrl . "' }, 1500);
 									}
@@ -559,10 +558,10 @@ class PaymentPayPalCommercePlatform extends PaymentModule {
 								document.querySelector('#messagePayment').innerHTML = 'Errore nel pagamento';
 								document.querySelector('#modal-id-payment-check').classList.add('active');
 								console.log(err);
-						  });
-						});
-					});
-				});
+						  })
+						})
+					})
+				})
 			};
 
 			//////////////////////PayPal button
@@ -598,8 +597,7 @@ class PaymentPayPalCommercePlatform extends PaymentModule {
 						console.log(data);
 						if (paymentStatus == 'COMPLETED') {
 							document.querySelector('#messagePayment').innerHTML = 'Pagamento andato a buonfine';
-							document.querySelector('#successful').innerHTML = '<p>Very soon you will be redirected to the confirmation page. If this does not happen within a few seconds, please click on the link.</p> \n
-							<a href=" . $successUrl . ">Go to confermation page</a>';
+							document.querySelector('#successful').innerHTML = '<p>Very soon you will be redirected to the confirmation page. If this does not happen within a few seconds, please click on the link.</p><a href=" . $successUrl . ">Go to confermation page</a>';
 							document.querySelector('#modal-id-payment-check').classList.add('active');
 							setTimeout(function(){ window.location.href = '" . $successUrl . "' }, 1500);
 						}
@@ -652,7 +650,7 @@ class PaymentPayPalCommercePlatform extends PaymentModule {
 		$f->name='clientIdLive';
 		$f->label=__("Live Client ID");
 		$f->notes=__("Get your Live Client ID by creating a REST API app [here](https://developer.paypal.com/developer/applications/create).");
-		$f->required=true;
+		$f->required=false;
 		$f->columnWidth=50;
 		if(isset($dataBK['clientIdLive'])) $f->value=$dataBK['clientIdLive'];
 		$inputfields->add($f);

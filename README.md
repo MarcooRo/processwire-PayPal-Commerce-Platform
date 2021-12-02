@@ -11,7 +11,7 @@ Payment via the Paypal button always remains client-side call.</p>
 <p>
 1. Copy the module in the folder site/modules and install it<br>
 2. Create a template in the root site/templates, and create the respective page from the backend. So that you have a URL that can receive the API call.<br>
-In this page you can copy the contents of the page <code>capture.php<code> present in the module.
+In this page you can copy the contents of the page <code>capture.php</code> present in the module.
 3. The module must be configured by adding the required parameters.
 </p>
 
