@@ -596,7 +596,15 @@ class PaymentPayPalCommercePlatform extends PaymentModule {
 				onApprove: function(data, actions) {
 					console.log('data:',data);
 
-					return fetch('".$capture."?id=' + data.orderID)
+					urlPay = 'https://api.sandbox.paypal.com/v2/checkout/orders/'+data.orderID+'/capture';
+
+					return fetch(urlPay, {
+						method: 'post',
+						headers: {
+							'Content-Type': 'application/json',
+				      			'Authorization': 'Bearer ".$this->access_token()."'
+						},
+					})
 					.then(function(res) {
 						return res.json();
 					}).then(function(data) {
