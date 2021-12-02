@@ -358,8 +358,8 @@ class PaymentPayPalCommercePlatform extends PaymentModule {
 		} else {
 			$landPath = '';
 		}
-		$capture = 'https://'.$_SERVER['HTTP_HOST'].'/'.$landPath.'/'.$this->capture;
-		$successUrl = 'https://'.$_SERVER['HTTP_HOST'].'/'.$landPath.'/'.$this->successUrl;
+		$capture = 'https://'.$_SERVER['HTTP_HOST'].'/'.$landPath.'/'.$this->capture.'/';
+		$successUrl = 'https://'.$_SERVER['HTTP_HOST'].'/'.$landPath.'/'.$this->successUrl.'/';
 
 		// Take Order information
 		$order_id=$this->id;
