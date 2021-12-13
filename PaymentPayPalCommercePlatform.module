@@ -96,31 +96,8 @@ class PaymentPayPalCommercePlatform extends PaymentModule {
 		$order = $this->getOrder($order_id);
 
 		$totale = str_replace(",", ".", $order->pad_price_total);
-
-		// $discountCode = $this->sanitizer->selectorValue($order->pad_discount_code);
-		// $dc = $this->pages->get("template=paddiscount, title=$discountCode");
-
-		$country = $order->pad_countrycode;
-		$userBiz = $order->invoice_IVA_VAT;
-
-		$cardDiscount = $order->CurrentAmount;
-
-		// if (!empty($cardDiscount)) {
-		// 	//$cardDiscount = str_replace('.', '', $cardDiscount);
-		// 	$totale = $totale - $cardDiscount;
-		// }
-
-		if ($country == 'GB' && $totale < 155) {
-			if ($userBiz) {
-				$totale = $totale;
-			} else {
-				$scorporoIva = $totale * 1.20;
-				$totale = floor(($scorporoIva*100))/100;
-			}
-		}
-
+		
 		return number_format($totale, 2);
-
 	}
 
 	public function render() {
